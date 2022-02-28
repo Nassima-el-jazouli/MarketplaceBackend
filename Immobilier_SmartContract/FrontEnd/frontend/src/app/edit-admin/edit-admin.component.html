@@ -1,0 +1,63 @@
+<section class="flat-title-page inner">
+  <div class="overlay"></div>
+  <div class="themesflat-container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-title-heading mg-bt-12">
+          <h1 class="heading text-center">Edit Admin</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tf-login tf-section">
+  <div class="themesflat-container">
+    <div class="row">
+      <div class="col-12">
+
+
+        <div class="flat-form box-login-email">
+          <div class="box-title-login">
+            <h5>Edit the informations of the admin</h5>
+          </div>
+
+          <div class="form-inner">
+            <form action="#" id="contactform"
+                  name="form"
+                  #f="ngForm">
+              <input id="name" name="username" tabindex="1" value="" aria-required="true" required type="text" placeholder="The New Username"
+                     [(ngModel)]="form.username"
+                     minlength="3"
+                     maxlength="20"
+                     #username="ngModel">
+              <br>
+
+              <input id="email" name="email" tabindex="2"  value="" aria-required="true" type="email" placeholder="The New Email Address" required
+                     [(ngModel)]="form.email"
+                     required
+                     email
+                     #email="ngModel">
+              <br>
+
+              <input id="password" name="" tabindex="3"  value="" aria-required="true" type="password" placeholder="Set The New Password" required
+                     [(ngModel)]="form.password"
+                     required
+                     minlength="6"
+                     #password="ngModel">
+              <br>
+
+              <button (click)="updateUser(f)">Saves changes</button>
+              <br>
+              <br>
+            </form>
+            <br>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

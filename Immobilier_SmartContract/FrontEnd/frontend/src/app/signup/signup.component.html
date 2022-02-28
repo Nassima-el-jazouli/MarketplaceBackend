@@ -1,0 +1,115 @@
+<section class="flat-title-page inner">
+    <div class="overlay"></div>
+    <div class="themesflat-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-title-heading mg-bt-12">
+                    <h1 class="heading text-center">Signup</h1>
+                </div>
+                <div class="breadcrumbs style2">
+                    <ul>
+                        <li><a routerLink="">Home</a></li>
+                        <li>Signup</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>                    
+</section>
+
+<section class="tf-login tf-section">
+    <div class="themesflat-container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="tf-title-heading ct style-1">
+                    Sigup To Axies
+                </h2>
+
+
+                <div class="flat-form box-login-email">
+                    <div class="box-title-login">
+                        <h5>Sign up with email</h5>
+                    </div>
+
+                    <div class="form-inner">
+                        <form action="#" id="contactform" 
+                        *ngIf="!isSuccessful"
+                        name="form"
+                        (ngSubmit)="f.form.valid && onSubmit()"
+                        #f="ngForm"
+                        novalidate>
+                            <input id="name" name="name" tabindex="1" value="" aria-required="true" required type="text" placeholder="Your Username" 
+                            [(ngModel)]="form.username"
+                            minlength="3"
+                            maxlength="20"
+                            #username="ngModel">
+
+                            <div *ngIf="username.errors && f.submitted">
+                                <div *ngIf="username.errors['required']">Username is required</div>
+                                <div *ngIf="username.errors['minlength']">
+                                  Username must be at least 3 characters
+                                </div>
+                                <div *ngIf="username.errors['maxlength']">
+                                  Username must be at most 20 characters
+                                </div>
+                            </div>
+                            <br>
+
+                            <input id="email" name="email" tabindex="2"  value="" aria-required="true" type="email" placeholder="Your Email Address" required
+                            [(ngModel)]="form.email"
+                            required
+                            email
+                            #email="ngModel">
+
+                            <div *ngIf="email.errors && f.submitted">
+                                <div *ngIf="email.errors['required']">Email is required</div>
+                                <div *ngIf="email.errors['email']">
+                                  Email must be a valid email address
+                                </div>
+                            </div>
+                            <br>
+
+                            <input id="password" name="password" tabindex="3"  value="" aria-required="true" type="password" placeholder="Set Your Password" required
+                            [(ngModel)]="form.password"
+                            required
+                            minlength="6"
+                            #password="ngModel">
+
+                            <div *ngIf="password.errors && f.submitted">
+                                <div *ngIf="password.errors['required']">Password is required</div>
+                                <div *ngIf="password.errors['minlength']">
+                                  Password must be at least 6 characters
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="row-form style-1">
+                                <label>Remember me
+                                    <input type="checkbox">
+                                    <span class="btn-checkbox"></span>
+                                </label>
+                                <a href="#" class="forgot-pass">Forgot Password ?</a>
+                            </div>
+
+                            <button class="submit">SignUp</button>
+                            <br>
+                            <br>
+                            <div *ngIf="f.submitted && isSignUpFailed">
+                                Signup failed!<br />{{ errorMessage }}
+                            </div>
+                        </form>
+                        <br>
+                        <div *ngIf="isSuccessful">
+                            <a routerLink="/login">
+                            Your registration is successful!
+                            </a>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

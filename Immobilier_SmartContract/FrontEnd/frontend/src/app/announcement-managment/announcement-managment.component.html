@@ -1,0 +1,82 @@
+<section class="flat-title-page inner">
+  <div class="overlay"></div>
+  <div class="themesflat-container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-title-heading mg-bt-12">
+          <h1 class="heading text-center">Requests</h1>
+        </div>
+        <div class="breadcrumbs style2">
+          <ul>
+            <li><a routerLink="">Home</a></li>
+            <li>Requests</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tf-explore-2 tf-section">
+  <div class="themesflat-container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="tf-title-heading ct style-2 mg-bt-13">
+          validate requests
+        </h2>
+        <p class="sub-title ct small mg-bt-20 pad-420">don't forget today requests validations  :) !                </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3" *ngFor="let request of requests">
+        <div class="sc-card-product">
+          <div class="card-media">
+            <a href="item-details.html"><img src="assets/images/box-item/home.png" alt="Image"></a>
+            <button class="wishlist-button heart"><span class="number-like"> 100</span></button>
+          </div>
+
+          <div class="card-title">
+            <h5 class="style2"><a href="item-details.html">Location: "{{request.location }}  "</a></h5>
+
+            <div class="tags">bsc</div>
+          </div>
+
+          <div style="margin-bottom:19px">
+            <h5 class="style2"><a href="item-details.html">House Title : "{{request.title }}  "</a></h5>
+          </div>
+
+          <div class="meta-info">
+
+            <div class="author">
+              <div class="avatar">
+                <img src="assets/images/box-item/monkey.png" alt="Image">
+              </div>
+              <div class="info">
+                <span>Owned By</span>
+                <h6 > <a href="author02.html">{{request.ownerAddress }}</a> </h6>
+                <!--                        <h6> <a href="author02.html">samir</a> </h6>-->
+              </div>
+            </div>
+          </div>
+
+          <div class="price" style="float:right;margin-top:30px">
+            <span>Current Bid</span>
+            <h5 style="color:black"> {{request.cost }} ETH</h5>
+          </div>
+
+          <div class="button" style="margin-top:30px">
+            <button type="button" class="btn btn-success"
+                    (click)="validation(request.title,request.ownerAddress);">
+              Validate
+            </button>
+            <button type="button" class="btn btn-warning ml-10"
+                    (click)="reject(request.title);">
+              Reject
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

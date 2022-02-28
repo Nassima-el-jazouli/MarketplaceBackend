@@ -1,0 +1,16 @@
+server:
+   port: 8088
+
+
+# spring:
+#     cloud:
+#       gateway:
+#         default-filters:
+#           - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+#         globalcors:
+#           cors-configurations:
+#             '[/**]':
+#               allowed-origins: "*"
+#               allowed-methods: "*"
+#               allowed-headers: "*"
+#               allow-credentials: true

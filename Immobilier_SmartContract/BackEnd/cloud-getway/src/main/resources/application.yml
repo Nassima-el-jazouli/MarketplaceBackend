@@ -1,0 +1,42 @@
+server:
+  port: 9191
+
+spring:
+  application:
+    name: API-GATWAY
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      routes:
+      - id: Contract-Service
+        uri: lb://Contract-Service
+        predicates:
+        - Path=/Ethereum/**
+      - id: Authentication-service
+        uri: lb://Authentication-service
+        predicates:
+          - Path=/api/auth/**
+      - id: Announcements-Service
+        uri: lb://Announcements-Service
+        predicates:
+          - Path=/Announce/**
+
+
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+   

@@ -1,0 +1,73 @@
+<section class="flat-title-page inner">
+  <div class="overlay"></div>
+  <div class="themesflat-container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-title-heading mg-bt-12">
+          <h1 class="heading text-center">Explore</h1>
+        </div>
+        <div class="breadcrumbs style2">
+          <ul>
+            <li><a routerLink="">Home</a></li>
+            <li>Explore</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tf-explore-2 tf-section">
+  <div class="themesflat-container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="tf-title-heading ct style-2 mg-bt-13">
+          Houses Marketplace
+        </h2>
+        <p class="sub-title ct small mg-bt-20 pad-420">get your dream's house here !                </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3" *ngFor="let announce of announces">
+        <div class="sc-card-product">
+          <div class="card-media">
+            <a href="item-details.html"><img src="assets/images/box-item/home.png" alt="Image"></a>
+            <button class="wishlist-button heart"><span class="number-like"> 100</span></button>
+          </div>
+
+          <div class="card-title">
+            <h5 class="style2"><a href="item-details.html">Location: "{{announce.location }}  "</a></h5>
+            <div class="tags">bsc</div>
+          </div>
+
+          <div class="meta-info">
+
+            <div class="author">
+              <div class="avatar">
+                <img src="assets/images/box-item/monkey.png" alt="Image">
+              </div>
+              <div class="info">
+                <span>Owned By</span>
+                <h6 > <a href="author02.html">{{announce.ownerAddress }}</a> </h6>
+                <!--                        <h6> <a href="author02.html">samir</a> </h6>-->
+              </div>
+            </div>
+          </div>
+
+          <div class="price" style="float:right;margin-top:30px;background-color:FloralWhite;border-radius:10px;">
+            <span style="color:black">Current Bid</span>
+            <h5 style="font-weight:bold;color:white;font-size:14px;color:black;margin-left:10px"> {{announce.cost }} ETH</h5>
+          </div>
+          <div class="button" style="margin-top:40px;margin-left:5px">
+<!--            <button class="btn btn-primary" style="font-weight:bold;font-size:14px">Buy</button>-->
+            <button type="button" (click)="TransferHouse(announce.ownerAddress,announce.cost,announce.title);RemovePublication(announce.title);"
+                    style="background-color:blue;margin-left:40px;margin-top:25px">
+              Buy
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

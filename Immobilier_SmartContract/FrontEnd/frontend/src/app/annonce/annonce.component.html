@@ -1,0 +1,164 @@
+
+<section class="flat-title-page inner">
+  <div class="overlay"></div>
+  <div class="themesflat-container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="page-title-heading mg-bt-12">
+          <h1 class="heading text-center">Add Announce</h1>
+        </div>
+        <div class="breadcrumbs style2">
+          <ul>
+            <li><a routerLink="">Home</a></li>
+            <li>Add Announce</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tf-explore-2 tf-section">
+  <div class="themesflat-container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="tf-title-heading ct style-2 mg-bt-13">
+          Houses Announces
+        </h2>
+        <p class="sub-title ct small mg-bt-20 pad-420">put your house in ethereum blockchain here !                </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3"></div>
+
+      <div class="col-6">
+        <div class="sc-card-product" style="color:white">
+
+          <form (ngSubmit)="onSubmit()" #AnnounceForm="ngForm" id="myForm">
+
+            <div class="form-group">
+              <label >ownerAddress</label>
+              <input minlength="32" maxlength="32"
+                     type="text" class="form-control"
+                     [(ngModel)]="announce.ownerAddress"
+                     name="ownerAddress"
+                     placeholder="Enter your Address"
+                     required #ownerAddress="ngModel">
+            </div>
+<!--            <div [hidden]="!ownerAddress.pristine" class="alert alert-danger">ownerAddress is required</div>-->
+            <div class="alert alert-danger" *ngIf="ownerAddress.touched && !ownerAddress.valid">
+              <div *ngIf="ownerAddress.errors?.['required']">ownerAddress is required.</div>
+              <div *ngIf="ownerAddress.errors?.['minlength']">ownerAddress is minimum {{ ownerAddress.errors?.['minlength'].requiredLength }} character.</div>
+              <div *ngIf="ownerAddress.errors?.['maxlength']">ownerAddress is maximum 10 character.</div>
+            </div>
+
+            <div class="form-group">
+              <label >HouseTitle</label>
+              <input type="text" class="form-control"
+                     [(ngModel)]="announce.title"
+                     name="HouseTitle"
+                     placeholder="Enter your HouseTitle"
+                     required #HouseTitle="ngModel">
+            </div>
+<!--            <div [hidden]="!HouseTitle.pristine" class="alert alert-danger">HouseTitle is required</div>-->
+            <div class="alert alert-danger" *ngIf="HouseTitle.touched && !HouseTitle.valid">
+              <div *ngIf="HouseTitle.errors?.['required']">HouseTitle is required.</div>
+            </div>
+
+
+            <div class="form-group">
+              <label >House location</label>
+              <input type="text" class="form-control"
+                     [(ngModel)]="announce.location"
+                     name="location"
+                     placeholder="Enter your house location"
+                     required #location="ngModel">
+            </div>
+            <div class="alert alert-danger" *ngIf="location.touched && !location.valid">
+              <div *ngIf="location.errors?.['required']">location is required.</div>
+            </div>
+
+
+            <div class="form-group">
+              <label >House cost</label>
+              <input type="number" class="form-control"
+                     [(ngModel)]="announce.cost"
+                     name="cost"
+                     placeholder="Enter your house cost"
+                     required #cost="ngModel">
+            </div>
+<!--            <div [hidden]="!cost.pristine" class="alert alert-danger">cost is required</div>-->
+            <div class="alert alert-danger" *ngIf="cost.touched && !cost.valid">
+              <div *ngIf="cost.errors?.['required']">cost is required.</div>
+            </div>
+
+
+            <div class="form-group">
+              <label >description</label>
+              <textarea  class="form-control"
+                     [(ngModel)]="announce.description"
+                     name="description"
+                     cols="30" rows="10"
+                     placeholder="Enter your house description"
+                     required #description="ngModel"></textarea>
+            </div>
+            <div *ngIf="cost.errors?.['required']">cost is required.</div>
+            <div class="alert alert-danger" *ngIf="description.touched && !description.valid">
+              <div *ngIf="description.errors?.['required']">description is required.</div>
+            </div>
+
+
+            <div class="form-group">
+              <label >Image</label>
+              <input type="file" class="form-control"
+                     [(ngModel)]="announce.image"
+                     name="image"
+                     placeholder="Enter your house image"
+                     required #image="ngModel">
+            </div>
+            <div class="alert alert-danger" *ngIf="image.touched && !image.valid">
+              <div *ngIf="image.errors?.['required']">image is required.</div>
+            </div>
+
+
+            <button type="submit"  [disabled]="!AnnounceForm.form.valid"
+                    form="myForm" style="margin-left:200px;color:white;"
+                    class="sc-button fl-button pri-3 mt-4 ">
+              Submit
+            </button>
+
+            <!--<a type="submit" class="sc-button fl-button pri-3 mt-4 "  >
+              <span style="color:green">Submit</span>
+            </a>-->
+
+          </form>
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div class="col-3">
+        <div class="sc-card-product" style="color:white">
+
+            <a routerLink="/announces-list" class="sc-button fl-button pri-3 ">
+              <span>Your requests <i class="fab fa-searchengin"></i></span>
+            </a>
+            <a routerLink="/announces-list" class="sc-button fl-button pri-3 mt-4 " >
+              <span style="color:green">Your announces <i class="fal fa-shield-check"></i></span>
+            </a>
+
+
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</section>
+
