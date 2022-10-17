@@ -1,2 +1,2 @@
 # MarketplaceBackend
-Il s'agit d'une application décentralisée basée sur la technologie blockchain et micro-service.
+A marketplace for real estate based on blockchain & microservices architecture.
